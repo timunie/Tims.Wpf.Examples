@@ -1,0 +1,20 @@
+﻿<mah:MetroWindow  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="BlinkingButton.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlinkingButton"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <mah:MetroWindow.DataContext>
+        <local:ViewModel />
+    </mah:MetroWindow.DataContext>
+
+    <StackPanel>
+        <Button Content="Blinking Test" Style="{StaticResource My.Styles.Buttons.Blinking}"/>
+        <mah:ToggleSwitch Header="Should I blink?"
+                          OnContent="Yes :-)"
+                          OffContent="No, I don't allow it"
+                          IsOn="{Binding DoBlink}" />
+    </StackPanel>
+</mah:MetroWindow>
