@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Media;
 using TimsWpfControls.Model;
 
 namespace IntersectTwoLists.Model
@@ -11,56 +13,57 @@ namespace IntersectTwoLists.Model
     {
         public ViewModel()
         {
-            People1.CollectionChanged += People_CollectionChanged;
+            Humen.CollectionChanged += Any_CollectionChanged;
+            Dogs.CollectionChanged += Any_CollectionChanged;
+
+            Humen.Add(new Human("Jake", Colors.Green));
+            Humen.Add(new Human("Tim", Colors.Blue));
+            Humen.Add(new Human("Lisa", Colors.Pink));
+
+            Dogs.Add(new Dog("Rex", Colors.Blue));
+            Dogs.Add(new Dog("Daisy", Colors.Pink));
+            Dogs.Add(new Dog("Snoopy", Colors.AliceBlue));
         }
 
-        private void People_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        private void Any_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
-                foreach (Person person in e.NewItems)
+                foreach (BaseClass item in e.NewItems)
                 {
-                    person.PropertyChanged += Person_PropertyChanged;
+                    item.PropertyChanged += Item_PropertyChanged; ;
                 }
             }
 
             if (e.OldItems != null)
             {
-                foreach (Person person in e.OldItems)
+                foreach (BaseClass item in e.OldItems)
                 {
-                    person.PropertyChanged -= Person_PropertyChanged;
+                    item.PropertyChanged -= Item_PropertyChanged;
                 }
             }
+
+            RaisePropertyChanged(nameof(GoingForAWalk));
         }
 
-        private void Person_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void Item_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            RaisePropertyChanged(nameof(PeopleInBothCollections));
+            RaisePropertyChanged(nameof(GoingForAWalk));
         }
 
-        public ObservableCollection<Person> People1 { get; } = new ObservableCollection<Person>()
-        {
-            new Person("Donald", "Duck"),
-            new Person("Daisy", "Duck"),
-            new Person("Jack", "Daniels")
-        };
+        public ObservableCollection<Human> Humen { get; } = new ObservableCollection<Human>();
 
-        public ObservableCollection<Person> People2 { get; } = new ObservableCollection<Person>()
-        {
-            new Person("Donald", "Duck"),
-            new Person("Daisy", "Duck"),
-            new Person("Jim", "Beam")
-        };
+        public ObservableCollection<Dog> Dogs { get; } = new ObservableCollection<Dog>();
 
-        public IEnumerable<Person> PeopleInBothCollections
+        public IEnumerable<Pair> GoingForAWalk
         {
             get
             {
-                foreach (var person in People1)
+                foreach (var human in Humen)
                 {
-                    if (People2.Any(x => x.FirstName == person.FirstName && x.LastName == person.LastName))
+                    foreach (var dog in Dogs.Where(d => d.ColorOfLine == human.ColorOfLine))
                     {
-                        yield return person;
+                        yield return new Pair() { Dog = dog, Human = human };
                     }
                 }
             }

@@ -1,6 +1,7 @@
 ﻿<mah:MetroWindow x:Class="IntersectTwoLists.MainWindow"
                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:ctrls="clr-namespace:TimsWpfControls;assembly=TimsWpfControls"
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:local="clr-namespace:IntersectTwoLists"
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
@@ -13,34 +14,66 @@
     <mah:MetroWindow.DataContext>
         <model:ViewModel />
     </mah:MetroWindow.DataContext>
-    
-    <UniformGrid Columns="3">
-        
-        <GroupBox Header="People 01">
-            <DataGrid ItemsSource="{Binding People1}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}" />
-                    <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </GroupBox>
 
-        <GroupBox Header="People 02">
-            <DataGrid ItemsSource="{Binding People2}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}" />
-                    <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </GroupBox>
+    <mah:MetroWindow.Resources>
 
-        <GroupBox Header="Result">
-            <DataGrid ItemsSource="{Binding PeopleInBothCollections}" IsReadOnly="True">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}" />
-                    <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </GroupBox>
-    </UniformGrid>
+        <DataTemplate x:Key="My.DataTemplates.ColorOfLineEditable">
+            <ctrls:ColorPicker SelectedColor="{Binding ColorOfLine}">
+                <ctrls:ColorPicker.ColorPalettes>
+                    <ctrls:ColorPalette ItemsSource="{x:Static ctrls:ColorPalette.PrimaryColorPalette}" />
+                    <ctrls:ColorPalette ItemsSource="{x:Static ctrls:ColorPalette.WpfColorPalette}" />
+                </ctrls:ColorPicker.ColorPalettes>
+            </ctrls:ColorPicker>
+        </DataTemplate>
+
+        <DataTemplate x:Key="My.DataTemplates.ColorOfLine">
+            <Ellipse Width="20"
+                     Height="20"
+                     HorizontalAlignment="Center"
+                     Stroke="{DynamicResource MahApps.Brushes.Gray}"
+                     StrokeThickness="1">
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="{Binding ColorOfLine}" />
+                </Ellipse.Fill>
+            </Ellipse>
+        </DataTemplate>
+
+    </mah:MetroWindow.Resources>
+
+    <DockPanel LastChildFill="True">
+        <TextBlock Text="Match the colors for human and dog to let them go for a walk" TextWrapping="Wrap" FontSize="16" DockPanel.Dock="Top" />
+        <UniformGrid Columns="3">
+
+            <GroupBox Header="Humen">
+                <DataGrid ItemsSource="{Binding Humen}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+                        <DataGridTemplateColumn CellEditingTemplate="{StaticResource My.DataTemplates.ColorOfLineEditable}"
+                                            CellTemplate="{StaticResource My.DataTemplates.ColorOfLine}"
+                                            Header="Line Color" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+
+            <GroupBox Header="Dogs">
+                <DataGrid ItemsSource="{Binding Dogs}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+                        <DataGridTemplateColumn CellEditingTemplate="{StaticResource My.DataTemplates.ColorOfLineEditable}"
+                                            CellTemplate="{StaticResource My.DataTemplates.ColorOfLine}"
+                                            Header="Line Color" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+
+            <GroupBox Header="Going for a walk">
+                <DataGrid IsReadOnly="True" ItemsSource="{Binding GoingForAWalk}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Human.Name}" Header="Human" />
+                        <DataGridTextColumn Binding="{Binding Dog.Name}" Header="Dog" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </UniformGrid>
+    </DockPanel>
 </mah:MetroWindow>
