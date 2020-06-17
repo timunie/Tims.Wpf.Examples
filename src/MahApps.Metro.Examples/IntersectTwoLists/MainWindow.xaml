@@ -1,0 +1,46 @@
+﻿<mah:MetroWindow x:Class="IntersectTwoLists.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:local="clr-namespace:IntersectTwoLists"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:model="clr-namespace:IntersectTwoLists.Model"
+                 Title="MainWindow"
+                 Width="800"
+                 Height="450"
+                 mc:Ignorable="d">
+    <mah:MetroWindow.DataContext>
+        <model:ViewModel />
+    </mah:MetroWindow.DataContext>
+    
+    <UniformGrid Columns="3">
+        
+        <GroupBox Header="People 01">
+            <DataGrid ItemsSource="{Binding People1}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}" />
+                    <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <GroupBox Header="People 02">
+            <DataGrid ItemsSource="{Binding People2}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}" />
+                    <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <GroupBox Header="Result">
+            <DataGrid ItemsSource="{Binding PeopleInBothCollections}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}" />
+                    <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </UniformGrid>
+</mah:MetroWindow>
