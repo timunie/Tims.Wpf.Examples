@@ -146,7 +146,10 @@
                                            Foreground="{DynamicResource MahApps.HamburgerMenu.Pane.Foreground}" />
                             </Border>
 
-                            <ListView Grid.Row="1" ItemsSource="{Binding Images}" />
+                            <ListView Grid.Row="1" ItemsSource="{Binding Images}" 
+                                      AllowDrop="True"
+                                      Drop="ListView_Drop"
+                                      PreviewDragOver="ListView_PreviewDragOver"/>
 
                             <UniformGrid Grid.Row="2" Columns="3">
                                 <Button Content="Add Images" Command="{Binding AddImagesCommand}" />

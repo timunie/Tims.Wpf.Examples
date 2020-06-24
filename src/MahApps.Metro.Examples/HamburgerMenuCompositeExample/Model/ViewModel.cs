@@ -22,7 +22,7 @@ namespace HamburgerMenuCompositeExample.Model
         }
 
 
-        static readonly string[] AllowedImageFiles = 
+        internal static readonly string[] AllowedImageFiles = 
         {
             "*.jpg",
             "*.jpeg",
@@ -71,7 +71,7 @@ namespace HamburgerMenuCompositeExample.Model
             get { return _AddFolderCommand ??= new RelayCommand((param) => AddFolder(null)); }
         }
 
-        private async void AddFolder(string FolderName)
+        internal async void AddFolder(string FolderName)
         {
             if (string.IsNullOrEmpty(FolderName))
             {
