@@ -125,6 +125,7 @@
                        ItemTemplate="{x:Null}"
                        ItemTemplateSelector="{StaticResource MenuItemTemplateSelector}"
                        SelectedIndex="0"
+                       CanResizeOpenPane="True"
                        VirtualizingPanel.IsVirtualizing="True">
         <mah:HamburgerMenu.ItemsSource>
             <CompositeCollection>
