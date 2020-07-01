@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlinkingButton", "BlinkingB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntersectTwoLists", "IntersectTwoLists\IntersectTwoLists.csproj", "{65DD709B-8678-4164-A57A-B00297CE61A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamburgerMenuCompositeExample", "HamburgerMenuCompositeExample\HamburgerMenuCompositeExample.csproj", "{372D68FA-D813-46CC-BAD2-CEA4068A7F10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamburgerMenuCompositeExample", "HamburgerMenuCompositeExample\HamburgerMenuCompositeExample.csproj", "{372D68FA-D813-46CC-BAD2-CEA4068A7F10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamburgerMenuAutoPaneOpening", "HamburgerMenuAutoPaneOpening\HamburgerMenuAutoPaneOpening.csproj", "{D172DE9C-1464-473B-9F0A-B08815360084}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{372D68FA-D813-46CC-BAD2-CEA4068A7F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{372D68FA-D813-46CC-BAD2-CEA4068A7F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{372D68FA-D813-46CC-BAD2-CEA4068A7F10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D172DE9C-1464-473B-9F0A-B08815360084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D172DE9C-1464-473B-9F0A-B08815360084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D172DE9C-1464-473B-9F0A-B08815360084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D172DE9C-1464-473B-9F0A-B08815360084}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
