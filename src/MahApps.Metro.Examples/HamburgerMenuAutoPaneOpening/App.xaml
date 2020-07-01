@@ -19,6 +19,30 @@
             </ResourceDictionary.MergedDictionaries>
 
             <Style BasedOn="{StaticResource {x:Type mah:HamburgerMenu}}" TargetType="{x:Type mah:HamburgerMenu}">
+                <Setter Property="ItemTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type mah:HamburgerMenuIconItem}">
+                            <Grid Height="48"
+                                  Background="Transparent"
+                                  ToolTip="{Binding Label}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <ContentControl Grid.Column="0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Content="{Binding Icon}"
+                                                Focusable="False"
+                                                IsTabStop="False" />
+                                <TextBlock Grid.Column="1"
+                                           VerticalAlignment="Center"
+                                           FontSize="16"
+                                           Text="{Binding Label}" />
+                            </Grid>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type mah:HamburgerMenu}">
@@ -65,38 +89,40 @@
                                                                 IsTabStop="False" />
                                             </DockPanel>
                                             <ListBox x:Name="ButtonsListView"
-                                                                      Grid.Row="1"
-                                                                      Width="{TemplateBinding OpenPaneLength}"
-                                                                      mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="{TemplateBinding VerticalScrollBarOnLeftSide}"
-                                                                      AutomationProperties.Name="Menu items"
-                                                                      Foreground="{TemplateBinding PaneForeground}"
-                                                                      IsTextSearchEnabled="False"
-                                                                      ItemContainerStyleSelector="{StaticResource HamburgerMenuItemStyleSelector}"
-                                                                      ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                                      ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"
-                                                                      ItemsSource="{TemplateBinding ItemsSource}"
-                                                                      ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                                                      SelectedIndex="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedIndex, Mode=TwoWay}"
-                                                                      SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedItem, Mode=TwoWay}"
-                                                                      SelectionMode="Single"
-                                                                      TabIndex="1" />
+                                                     Grid.Row="1"
+                                                     Width="{TemplateBinding OpenPaneLength}"
+                                                     mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="{TemplateBinding VerticalScrollBarOnLeftSide}"
+                                                     AutomationProperties.Name="Menu items"
+                                                     Foreground="{TemplateBinding PaneForeground}"
+                                                     IsTextSearchEnabled="False"
+                                                     ItemContainerStyleSelector="{StaticResource HamburgerMenuItemStyleSelector}"
+                                                     ItemTemplate="{TemplateBinding ItemTemplate}"
+                                                     ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                                     ItemsSource="{TemplateBinding ItemsSource}"
+                                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                     SelectedIndex="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedIndex, Mode=TwoWay}"
+                                                     SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedItem, Mode=TwoWay}"
+                                                     SelectionMode="Single"
+                                                     Style="{DynamicResource MahApps.Styles.ListBox.HamburgerMenu}"
+                                                     TabIndex="1" />
                                             <ListBox x:Name="OptionsListView"
-                                                                      Grid.Row="2"
-                                                                      Width="{TemplateBinding OpenPaneLength}"
-                                                                      Margin="0,20,0,0"
-                                                                      VerticalAlignment="Bottom"
-                                                                      AutomationProperties.Name="Option items"
-                                                                      Foreground="{TemplateBinding PaneForeground}"
-                                                                      IsTextSearchEnabled="False"
-                                                                      ItemContainerStyleSelector="{StaticResource HamburgerMenuItemOptionsStyleSelector}"
-                                                                      ItemTemplate="{TemplateBinding OptionsItemTemplate}"
-                                                                      ItemTemplateSelector="{TemplateBinding OptionsItemTemplateSelector}"
-                                                                      ItemsSource="{TemplateBinding OptionsItemsSource}"
-                                                                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                                                                      SelectedIndex="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedOptionsIndex, Mode=TwoWay}"
-                                                                      SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedOptionsItem, Mode=TwoWay}"
-                                                                      SelectionMode="Single"
-                                                                      TabIndex="2" />
+                                                     Grid.Row="2"
+                                                     Width="{TemplateBinding OpenPaneLength}"
+                                                     Margin="0,20,0,0"
+                                                     VerticalAlignment="Bottom"
+                                                     AutomationProperties.Name="Option items"
+                                                     Foreground="{TemplateBinding PaneForeground}"
+                                                     IsTextSearchEnabled="False"
+                                                     ItemContainerStyleSelector="{StaticResource HamburgerMenuItemOptionsStyleSelector}"
+                                                     ItemTemplate="{TemplateBinding OptionsItemTemplate}"
+                                                     ItemTemplateSelector="{TemplateBinding OptionsItemTemplateSelector}"
+                                                     ItemsSource="{TemplateBinding OptionsItemsSource}"
+                                                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                                     SelectedIndex="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedOptionsIndex, Mode=TwoWay}"
+                                                     SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedOptionsItem, Mode=TwoWay}"
+                                                     SelectionMode="Single"
+                                                     Style="{DynamicResource MahApps.Styles.ListBox.HamburgerMenu}"
+                                                     TabIndex="2" />
                                         </Grid>
                                     </mah:SplitView.Pane>
                                     <mah:TransitioningContentControl x:Name="ContentPart"

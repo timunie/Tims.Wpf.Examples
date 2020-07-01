@@ -9,12 +9,37 @@
                  Width="800"
                  Height="450"
                  mc:Ignorable="d">
-    <mah:HamburgerMenu Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=SelectedItem}">
+    <mah:HamburgerMenu Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=SelectedItem.Tag}"
+                       DisplayMode="CompactOverlay" >
         <mah:HamburgerMenu.ItemsSource>
             <mah:HamburgerMenuItemCollection>
-                <mah:HamburgerMenuIconItem Icon="A" Label="Test" Tag="Test" />
+                
+                <mah:HamburgerMenuIconItem Icon="A" Label="Test 1">
+                    <mah:HamburgerMenuIconItem.Tag>
+                        <Button Margin="5">
+                            This is Test 1
+                        </Button>
+                    </mah:HamburgerMenuIconItem.Tag>
+                </mah:HamburgerMenuIconItem>
+
+                <mah:HamburgerMenuIconItem Icon="B" Label="Test 2">
+                    <mah:HamburgerMenuIconItem.Tag>
+                        <Button Margin="5">
+                            This is Test 2
+                        </Button>
+                    </mah:HamburgerMenuIconItem.Tag>
+                </mah:HamburgerMenuIconItem>
+
+                <mah:HamburgerMenuIconItem Icon="C" Label="Test 3">
+                    <mah:HamburgerMenuIconItem.Tag>
+                        <Button Margin="5">
+                            This is Test 3
+                        </Button>
+                    </mah:HamburgerMenuIconItem.Tag>
+                </mah:HamburgerMenuIconItem>
+                
             </mah:HamburgerMenuItemCollection>
         </mah:HamburgerMenu.ItemsSource>
-        
+
     </mah:HamburgerMenu>
 </mah:MetroWindow>
