@@ -25,3 +25,14 @@ Attention: This sample should only show that it is possible to do it with a cust
 
 ### Preview
 ![](res/HamburgerMenuAutoOpenClose.gif)
+
+--------------------------------------------------------------
+
+## Custom Style for DataGridCell with Trigger
+
+### Features
+- A `Button` shows up when the `DataGridCell` becomes the focus
+- For now the cell will start editing mode when you click the button
+
+### Preview
+![](res/DataGridCellStyle_FocusTrigger.gif)
