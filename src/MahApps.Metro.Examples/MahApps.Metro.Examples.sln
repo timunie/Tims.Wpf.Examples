@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamburgerMenuAutoPaneOpenin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGridCellStyleExample", "DataGridCellStyleExample\DataGridCellStyleExample.csproj", "{8B330E02-6B61-43A2-A640-CC23E2088D2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelayShowProgressExample", "DelayShowProgressExample\DelayShowProgressExample.csproj", "{9023B498-8AB2-426C-AA1F-007513FB9CC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{8B330E02-6B61-43A2-A640-CC23E2088D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B330E02-6B61-43A2-A640-CC23E2088D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B330E02-6B61-43A2-A640-CC23E2088D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9023B498-8AB2-426C-AA1F-007513FB9CC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9023B498-8AB2-426C-AA1F-007513FB9CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9023B498-8AB2-426C-AA1F-007513FB9CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9023B498-8AB2-426C-AA1F-007513FB9CC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
