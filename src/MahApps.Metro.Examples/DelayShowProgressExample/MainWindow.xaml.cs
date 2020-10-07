@@ -36,7 +36,9 @@ namespace DelayShowProgressExample
         private async void BeginShowProgressTimer_Tick(object sender, EventArgs e)
         {
             beginShowProgressTimer.Stop();
+            AppendText("timer stopped");
             dialogController = await this.ShowProgressAsync("Hi", "Here I am :-)");
+            AppendText("progress shown");
             dialogController.SetIndeterminate();
         }
 
@@ -44,21 +46,45 @@ namespace DelayShowProgressExample
         private ProgressDialogController dialogController;
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            ClearText();
+
             beginShowProgressTimer.Interval = TimeSpan.FromSeconds(NUD_ShowProgressDelay.Value ?? 0);
+
+            AppendText($"set timer to {NUD_ShowProgressDelay.Value} second(s)");
+
             beginShowProgressTimer.Start();
 
+            AppendText("timer started");
+
             // Run our Process
+            AppendText($"process started and will run {NUD_TaskDuration.Value} Second(s)");
             await Task.Delay(TimeSpan.FromSeconds(NUD_TaskDuration.Value ?? 1));
+            AppendText("process finished");
 
             // Esure we stop the timer 
             beginShowProgressTimer.Stop();
+            AppendText("timer stopped");
 
             // If we have the dialog close it.
             if (dialogController != null)
             {
                 await dialogController.CloseAsync();
+                AppendText("dialog closed");
                 dialogController = null;
+                AppendText("dialog set to 'null'");
             }
+        }
+
+        private void AppendText(string text)
+        {
+            var action = new Action(() => TXT_Output.AppendText($"{DateTime.Now}: {text}{Environment.NewLine}"));
+            Dispatcher.BeginInvoke(DispatcherPriority.Send, action);
+        }
+
+        private void ClearText()
+        {
+            var action = new Action(() => TXT_Output.SetCurrentValue(TextBox.TextProperty, null));
+            Dispatcher.BeginInvoke(DispatcherPriority.Send, action);
         }
     }
 }
