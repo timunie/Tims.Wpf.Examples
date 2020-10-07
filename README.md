@@ -36,3 +36,18 @@ Attention: This sample should only show that it is possible to do it with a cust
 
 ### Preview
 ![](res/DataGridCellStyle_FocusTrigger.gif)
+
+--------------------------------------------------------------
+
+## Delayed ProgressDialog 
+
+### Features
+- Set time when the dialog should be shown in seconds
+- Set time to wait in seconds 
+- `ProgressDialog` will appear after the given time, if needed.
+
+### Preview
+![DelayedProgressDialogExample](res/DelayedProgressDialogExample.gif)
+
+### Source
+[https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/DelayShowProgressExample](https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/DelayShowProgressExample)
