@@ -51,3 +51,21 @@ Attention: This sample should only show that it is possible to do it with a cust
 
 ### Source
 [https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/DelayShowProgressExample](https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/DelayShowProgressExample)
+
+
+--------------------------------------------------------------
+
+## Filter Example
+### Features
+- Filter a list by different filter options
+   - match persons first name
+   - and or match persons last name
+   - and or match persons age
+- Filter updates automatically
+
+### Preview
+![](res/FilterExample.png)
+
+*Shows all persons with first name or last name contain >su< and age between 20 and 80*
+### Source
+[https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/FilterDataGridExample](https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/FilterDataGridExample)
