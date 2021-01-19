@@ -1,0 +1,30 @@
+﻿<mah:MetroWindow x:Class="ListViewDetailsExample.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:local="clr-namespace:ListViewDetailsExample"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 Title="ListView with Details"
+                 Width="800"
+                 Height="450"
+                 mc:Ignorable="d">
+    <mah:MetroWindow.DataContext>
+        <local:ViewModel />
+    </mah:MetroWindow.DataContext>
+    <ListView ItemsSource="{Binding Examples}" Margin="10">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <StackPanel>
+                    <TextBlock Text="{Binding Title}" Margin="5,10" />
+                    <GroupBox Content="{Binding Detail}" Margin="5"
+                              BorderBrush="{DynamicResource MahApps.Brushes.ThemeBackground}"
+                              mah:ControlsHelper.CornerRadius="5"
+                              Background="{DynamicResource MahApps.Brushes.Gray8}"
+                              Header="Detail"
+                              Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListViewItem}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                </StackPanel>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</mah:MetroWindow>
