@@ -58,5 +58,15 @@ namespace HamburgerMenuCompositeExample
         {
             e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         }
+
+
+        private void myHamburgerMenu_ItemClick(object sender, ItemClickEventArgs args)
+        {
+            if (args.ClickedItem is HamburgerMenuItem menuItem && !(menuItem.Command is null))
+            {
+                // Mark us as handled so we don't change the selection
+                args.Handled = true;
+            }
+        }
     }
 }

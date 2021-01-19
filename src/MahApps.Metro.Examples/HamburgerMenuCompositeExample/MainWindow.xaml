@@ -1,4 +1,5 @@
-﻿<mah:MetroWindow x:Class="HamburgerMenuCompositeExample.MainWindow"
+﻿<mah:MetroWindow x:Name="mainWindow"
+                 x:Class="HamburgerMenuCompositeExample.MainWindow"
                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +8,6 @@
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:model="clr-namespace:HamburgerMenuCompositeExample.Model"
-                 x:Name="mainWindow"
                  Title="Hamburger Menu with Composite Collection"
                  Width="800"
                  Height="450"
@@ -100,11 +100,11 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Focusable="False"
-                               Stretch="Uniform" >
+                               Stretch="Uniform">
                             <Image.Source>
-                                <BitmapImage UriSource="{Binding IsAsync=True}"
-                                             DecodePixelHeight="48"
-                                             RenderOptions.BitmapScalingMode="LowQuality" />
+                                <BitmapImage DecodePixelHeight="48"
+                                             RenderOptions.BitmapScalingMode="LowQuality"
+                                             UriSource="{Binding IsAsync=True}" />
                             </Image.Source>
                         </Image>
                         <TextBlock Text="{Binding Converter={model:FilepathToFilenameConverter}}"
@@ -119,13 +119,14 @@
 
     </mah:MetroWindow.Resources>
 
-    <mah:HamburgerMenu x:Name="myHamburgerMenu"
-                       Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=SelectedItem}"
+    <mah:HamburgerMenu x:Name="myHamburgerMenu" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=SelectedItem}"
+                       CanResizeOpenPane="True"
                        ContentTemplateSelector="{StaticResource ContentTemplateSelector}"
                        ItemTemplate="{x:Null}"
                        ItemTemplateSelector="{StaticResource MenuItemTemplateSelector}"
+                       OptionsItemClick="myHamburgerMenu_ItemClick"
+                       OptionsItemTemplateSelector="{StaticResource MenuItemTemplateSelector}"
                        SelectedIndex="0"
-                       CanResizeOpenPane="True"
                        VirtualizingPanel.IsVirtualizing="True">
         <mah:HamburgerMenu.ItemsSource>
             <CompositeCollection>
@@ -147,15 +148,16 @@
                                            Foreground="{DynamicResource MahApps.HamburgerMenu.Pane.Foreground}" />
                             </Border>
 
-                            <ListView Grid.Row="1" ItemsSource="{Binding Images}" 
+                            <ListView Grid.Row="1"
                                       AllowDrop="True"
                                       Drop="ListView_Drop"
-                                      PreviewDragOver="ListView_PreviewDragOver"/>
+                                      ItemsSource="{Binding Images}"
+                                      PreviewDragOver="ListView_PreviewDragOver" />
 
                             <UniformGrid Grid.Row="2" Columns="3">
-                                <Button Content="Add Images" Command="{Binding AddImagesCommand}" />
-                                <Button Content="Add Folder" Command="{Binding AddFolderCommand}" />
-                                <Button Content="Clear all Images" Command="{Binding ClearCollectionCommand}" />
+                                <Button Command="{Binding AddImagesCommand}" Content="Add Images" />
+                                <Button Command="{Binding AddFolderCommand}" Content="Add Folder" />
+                                <Button Command="{Binding ClearCollectionCommand}" Content="Clear all Images" />
                             </UniformGrid>
                         </Grid>
                     </mah:HamburgerMenuIconItem.Tag>
@@ -166,7 +168,18 @@
 
                 <CollectionContainer Collection="{Binding Source={StaticResource My.Collections.Images}}" />
 
+
             </CompositeCollection>
         </mah:HamburgerMenu.ItemsSource>
+
+        <mah:HamburgerMenu.OptionsItemsSource>
+            <mah:HamburgerMenuItemCollection>
+                <mah:HamburgerMenuSeparatorItem />
+                <mah:HamburgerMenuIconItem Command="{Binding AddImagesCommand}"
+                                           Icon="{iconPacks:Material Kind=Plus}"
+                                           Label="Add Images" />
+            </mah:HamburgerMenuItemCollection>
+        </mah:HamburgerMenu.OptionsItemsSource>
+
     </mah:HamburgerMenu>
 </mah:MetroWindow>
