@@ -69,3 +69,14 @@ Attention: This sample should only show that it is possible to do it with a cust
 *Shows all persons with first name or last name contain >su< and age between 20 and 80*
 ### Source
 [https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/FilterDataGridExample](https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/FilterDataGridExample)
+
+------------------
+## ListView with Details
+### Features
+Opens a detail view only for the selected item. 
+
+### Preview
+![Example](res/ListViewWithDetail.png)
+
+### Source
+https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/ListViewDetailsExample
