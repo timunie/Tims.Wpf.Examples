@@ -1,4 +1,6 @@
-﻿# MahApps.Metro.Examples
+﻿# Tims.Wpf.Examples
+
+Just some code examples. 
 
 -------
 
