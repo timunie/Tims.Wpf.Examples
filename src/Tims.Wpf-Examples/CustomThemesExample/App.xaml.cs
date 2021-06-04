@@ -26,20 +26,23 @@ namespace CustomThemesExample
         public static void SetAppTheme(string baseTheme, Color accent)
         {
             var theme = new Theme("MyTheme",
-                                 "MyTheme",
-                                 baseTheme ?? ThemeManager.BaseColorLightConst,
-                                 accent.ToString(),
-                                 accent,
-                                 new SolidColorBrush(accent),
-                                 true,
-                                 false);
+                                    "MyTheme",
+                                    baseTheme ?? ThemeManager.BaseColorLightConst,
+                                    accent.ToString(),
+                                    accent,
+                                    new SolidColorBrush(accent),
+                                    true,
+                                    false);
 
             var HsvAccent = new HSVColor(accent);
 
-            App.Current.Resources["My.Brushes.Complementary"] 
-                = new SolidColorBrush(new HSVColor(HsvAccent.Hue + 180,
-                                                   HsvAccent.Saturation,
-                                                   HsvAccent.Value).ToColor());
+            var newBrush = new SolidColorBrush(new HSVColor(HsvAccent.Hue + 180,
+                                                                HsvAccent.Saturation,
+                                                                HsvAccent.Value).ToColor());
+
+            newBrush.Freeze();
+            App.Current.Resources["My.Brushes.Complementary"] = newBrush;
+            ;
 
             ThemeManager.Current.ChangeTheme(App.Current, theme);
         }

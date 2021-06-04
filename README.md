@@ -143,5 +143,10 @@ public static void SetAppTheme(string baseTheme, Color accent)
 <Border Background="{DynamicResource My.Brushes.Complementary}" />
 ``` 
 
+### Preview
+![](res/CustomTheme_01.png)
+
+![](res/CustomTheme_02.png)
+
 ### Source
 [CustomThemesExample](src/Tims.Wpf-Examples/CustomThemesExample)
