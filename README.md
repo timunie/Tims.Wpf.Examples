@@ -82,3 +82,66 @@ Opens a detail view only for the selected item.
 
 ### Source
 https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.Examples/ListViewDetailsExample
+
+------------------------------
+
+## Custom Themes Examaple
+
+### Features
+- Change the current theme via custom accent and base theme
+- Apply additionaly `DynamicResources` to provide your own appereance
+
+### How it works
+1. In your App.xaml or any other `Resoruces` section add:
+```xaml
+<Application.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <!--  MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive!  -->
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+            <!--  Accent and AppTheme setting  -->
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+
+        <!-- your Brush goes here -->
+        <SolidColorBrush Color="Red" x:Key="My.Brushes.Complementary" />
+            
+    </ResourceDictionary>
+</Application.Resources>
+```
+
+2. when you change the `Theme` change also the `Brush`:
+```c#
+public static void SetAppTheme(string baseTheme, Color accent)
+{
+    var theme = new Theme("MyTheme",
+                            "MyTheme",
+                            baseTheme ?? ThemeManager.BaseColorLightConst,
+                            accent.ToString(),
+                            accent,
+                            new SolidColorBrush(accent),
+                            true,
+                            false);
+
+    var HsvAccent = new HSVColor(accent);
+
+    // Change the Bursh here. You may also want to Freeze it. 
+    var newBrush = new SolidColorBrush(new HSVColor(HsvAccent.Hue + 180,
+                                                    HsvAccent.Saturation,
+                                                    HsvAccent.Value).ToColor());
+
+    newBrush.Freeze();
+    App.Current.Resources["My.Brushes.Complementary"] = newBrush;
+
+    ThemeManager.Current.ChangeTheme(App.Current, theme);
+}
+```
+
+3. Use the new Resource anywhere: 
+```xaml
+<Border Background="{DynamicResource My.Brushes.Complementary}" />
+``` 
+
+### Source
+[CustomThemesExample](src/Tims.Wpf-Examples/CustomThemesExample)
