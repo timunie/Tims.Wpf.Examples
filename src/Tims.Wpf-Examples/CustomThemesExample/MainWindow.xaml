@@ -1,0 +1,111 @@
+﻿<mah:MetroWindow x:Class="CustomThemesExample.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:local="clr-namespace:CustomThemesExample"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                 Title="Custom Brushes Example"
+                 Width="400"
+                 Height="450"
+                 mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <mah:MetroHeader Margin="5,5,5,0" Header="Select your base theme">
+                <ComboBox x:Name="ComboBoxBaseTheme" SelectedIndex="0">
+                    <sys:String>Light</sys:String>
+                    <sys:String>Dark</sys:String>
+                </ComboBox>
+            </mah:MetroHeader>
+
+            <mah:MetroHeader Margin="5,5,5,0" Header="Select your accent">
+                <mah:ColorPicker x:Name="ColorPickerAccent" DefaultColor="DarkBlue" />
+            </mah:MetroHeader>
+
+            <Button Margin="5,5,5,0"
+                    Click="ButtonApplyTheme_Click"
+                    mah:ControlsHelper.ContentCharacterCasing="Normal"
+                    Content="Apply Theme"
+                    Style="{DynamicResource MahApps.Styles.Button.Square.Accent}" />
+
+            <Separator Margin="5,10,5,5" />
+
+            <GroupBox Margin="5" Header="Result">
+                <WrapPanel HorizontalAlignment="Center">
+                    <Border Width="100"
+                            Height="100"
+                            Margin="5"
+                            Background="{DynamicResource MahApps.Brushes.Highlight}"
+                            BorderBrush="{DynamicResource MahApps.Brushes.Gray}"
+                            CornerRadius="5">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="{DynamicResource MahApps.Brushes.IdealForeground}"
+                                   Text="Highlight" />
+                    </Border>
+
+                    <Border Width="100"
+                            Height="100"
+                            Margin="5"
+                            Background="{DynamicResource MahApps.Brushes.Accent}"
+                            BorderBrush="{DynamicResource MahApps.Brushes.Gray}"
+                            CornerRadius="5">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="{DynamicResource MahApps.Brushes.IdealForeground}"
+                                   Text="Accent" />
+                    </Border>
+
+                    <Border Width="100"
+                            Height="100"
+                            Margin="5"
+                            Background="{DynamicResource MahApps.Brushes.Accent2}"
+                            BorderBrush="{DynamicResource MahApps.Brushes.Gray}"
+                            CornerRadius="5">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="{DynamicResource MahApps.Brushes.IdealForeground}"
+                                   Text="Accent2" />
+                    </Border>
+
+                    <Border Width="100"
+                            Height="100"
+                            Margin="5"
+                            Background="{DynamicResource MahApps.Brushes.Accent3}"
+                            BorderBrush="{DynamicResource MahApps.Brushes.Gray}"
+                            CornerRadius="5">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="{DynamicResource MahApps.Brushes.IdealForeground}"
+                                   Text="Accent3" />
+                    </Border>
+
+                    <Border Width="100"
+                            Height="100"
+                            Margin="5"
+                            Background="{DynamicResource MahApps.Brushes.Accent4}"
+                            BorderBrush="{DynamicResource MahApps.Brushes.Gray}"
+                            CornerRadius="5">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="{DynamicResource MahApps.Brushes.IdealForeground}"
+                                   Text="Accent4" />
+                    </Border>
+
+                    <Border Width="100"
+                            Height="100"
+                            Margin="5"
+                            Background="{DynamicResource My.Brushes.Complementary}"
+                            BorderBrush="{DynamicResource MahApps.Brushes.Gray}"
+                            CornerRadius="5">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="{DynamicResource MahApps.Brushes.IdealForeground}"
+                                   Text="Complementary" />
+                    </Border>
+                </WrapPanel>
+            </GroupBox>
+        </StackPanel>
+    </ScrollViewer>
+</mah:MetroWindow>
