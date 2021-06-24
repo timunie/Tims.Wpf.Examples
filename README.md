@@ -150,3 +150,18 @@ public static void SetAppTheme(string baseTheme, Color accent)
 
 ### Source
 [CustomThemesExample](src/Tims.Wpf-Examples/CustomThemesExample)
+
+--------
+
+## Window in a different Thread
+
+### Features 
+- Open Window in different Thread
+- Moving or resizing the MainWindow will also affect the child 
+
+### How it works
+- Using a ViewModel to store the position and react on changes
+- Use the `Dispatcher.InvokeAsync` in order to update child window from other thread
+
+### Source
+[WindowInDifferentThread](src/Tims.Wpf-Examples/WindowInDifferentThread)
