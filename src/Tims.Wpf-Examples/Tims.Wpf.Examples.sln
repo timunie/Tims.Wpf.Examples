@@ -23,7 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testEmbed", "testEmbed\test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComboBoxAndDataTableExample", "ComboBoxAndDataTableExample\ComboBoxAndDataTableExample.csproj", "{35346C24-15C8-418A-A04C-1B6B6AEB0051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomThemesExample", "CustomThemesExample\CustomThemesExample.csproj", "{9E08CE32-7BCA-49AC-BBFB-E78EB18F3BB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomThemesExample", "CustomThemesExample\CustomThemesExample.csproj", "{9E08CE32-7BCA-49AC-BBFB-E78EB18F3BB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowInDifferentThread", "WindowInDifferentThread\WindowInDifferentThread.csproj", "{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{9E08CE32-7BCA-49AC-BBFB-E78EB18F3BB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E08CE32-7BCA-49AC-BBFB-E78EB18F3BB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E08CE32-7BCA-49AC-BBFB-E78EB18F3BB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
