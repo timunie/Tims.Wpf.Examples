@@ -4,7 +4,7 @@ Just some code examples.
 
 -------
 
-## Hamburgermenu sample using CompositeCollection
+## HamburgerMenu sample using CompositeCollection
 This sample demonstrates a few advanced possibilities of the cool [MahApps HamburgerMenu](https://mahapps.com). 
 
 ### Features
@@ -18,7 +18,7 @@ This sample demonstrates a few advanced possibilities of the cool [MahApps Hambu
 
 --------------------------------------------------------------
 
-## Hamburgermenu with Pane that opens automatically on MouseOver
+## HamburgerMenu with Pane that opens automatically on MouseOver
 
 Attention: This sample should only show that it is possible to do it with a custom `ControlTemplate`. It may be a bad UX / UI. Please think about it before you implement this in your App. 
 
@@ -85,7 +85,7 @@ https://github.com/timunie/MahApps.Metro.Examples/tree/master/src/MahApps.Metro.
 
 ------------------------------
 
-## Custom Themes Examaple
+## Custom Themes Example
 
 ### Features
 - Change the current theme via custom accent and base theme
