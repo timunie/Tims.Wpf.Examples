@@ -165,3 +165,22 @@ public static void SetAppTheme(string baseTheme, Color accent)
 
 ### Source
 [WindowInDifferentThread](src/Tims.Wpf-Examples/WindowInDifferentThread)
+
+
+------
+
+## Long List with DynamicData (ReacticeUI) and Filtering
+
+### Features 
+- Loads 5,000 items or more in a very short time < 1s 
+- Filter the long list during typing
+- Test different methods
+
+### How it works
+- Using DynamicData: https://www.reactiveui.net/docs/handbook/collections/ 
+
+### Preview
+![Dynamic Data Example](res/DynamicDataExample.png)
+
+### Source
+[DynamicData](src/Tims.Wpf-Examples/DynamicDataExample)
