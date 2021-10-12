@@ -6,11 +6,25 @@
         xmlns:model="clr-namespace:DynamicDataExample.Model"
         xmlns:local="clr-namespace:DynamicDataExample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Dynamic Data Example" Height="450" Width="800">
     <Window.DataContext>
         <model:MainViewModel />
     </Window.DataContext>
     <DockPanel LastChildFill="True">
-        <ListBox ItemsSource="{Binding ListItems}" DisplayMemberPath="Content" />
+        <TextBlock Text="How many Items do you want to show?" DockPanel.Dock="Top" Margin="5,5,5,0" FontWeight="Bold"  />
+        <TextBox Text="{Binding ItemsToGenerate}" DockPanel.Dock="Top" Margin="5,5,5,0" />
+
+        <UniformGrid Columns="2" DockPanel.Dock="Top" Margin="5,5,5,0">
+            <Button Content="Method 1" ToolTip="Adds one item at a time" Click="Method_01_Click" />
+            <Button Content="Method 2" ToolTip="Adds all items in a single process" Click="Method_02_Click" />
+        </UniformGrid>
+        
+        <TextBlock Text="Filter" DockPanel.Dock="Top" Margin="5,5,5,0" FontWeight="Bold" />
+        <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Top" Margin="5,5,5,0" />
+
+        <TextBlock Text="Result" DockPanel.Dock="Top" Margin="5,5,5,0" FontWeight="Bold" />
+        
+        <ListBox ItemsSource="{Binding ListItems}" DisplayMemberPath="Content" Margin="5" />
+        
     </DockPanel>
 </Window>

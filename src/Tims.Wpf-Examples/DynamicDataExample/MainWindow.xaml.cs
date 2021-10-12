@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DynamicDataExample.Model;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,35 @@ namespace DynamicDataExample
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainViewModel ViewModel => DataContext as MainViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void Method_01_Click(object sender, RoutedEventArgs e)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+
+            stopwatch.Start();
+            ViewModel.CreateTestData(false);
+
+            stopwatch.Stop();
+
+            MessageBox.Show($"The update took {stopwatch.ElapsedMilliseconds} ms");
+        }
+
+        private void Method_02_Click(object sender, RoutedEventArgs e)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+
+            stopwatch.Start();
+
+            ViewModel.CreateTestData(true);
+
+            stopwatch.Stop();
+
+            MessageBox.Show($"The update took {stopwatch.ElapsedMilliseconds} ms");
         }
     }
 }
