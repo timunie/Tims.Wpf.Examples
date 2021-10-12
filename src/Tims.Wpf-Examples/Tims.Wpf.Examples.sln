@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComboBoxAndDataTableExample
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomThemesExample", "CustomThemesExample\CustomThemesExample.csproj", "{9E08CE32-7BCA-49AC-BBFB-E78EB18F3BB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowInDifferentThread", "WindowInDifferentThread\WindowInDifferentThread.csproj", "{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowInDifferentThread", "WindowInDifferentThread\WindowInDifferentThread.csproj", "{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicDataExample", "DynamicDataExample\DynamicDataExample.csproj", "{28283D18-12FD-4B0B-9AC6-99E2FD0D24C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1ADADF5-6D15-430C-9DFB-3E669ADCCC34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28283D18-12FD-4B0B-9AC6-99E2FD0D24C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28283D18-12FD-4B0B-9AC6-99E2FD0D24C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28283D18-12FD-4B0B-9AC6-99E2FD0D24C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28283D18-12FD-4B0B-9AC6-99E2FD0D24C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
